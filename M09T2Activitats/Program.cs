@@ -12,7 +12,7 @@ namespace M09T2Activitats
                 foreach (Process process in progresses)
                 {
                     Console.WriteLine(process.Id);
-                    writer.WriteLine(process.Id);
+                    writer.WriteLine(process.Id); 
                 }
             }
         }
