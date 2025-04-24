@@ -21,6 +21,7 @@ namespace M09T2Activitats
             */
             //Ex5
             //A)
+            /*
             Thread th1 = new Thread(() => Console.WriteLine("Soc el primer fil"));
             Thread th2 = new Thread(() => Console.WriteLine("Soc el segon fil"));
             Thread th3 = new Thread(() => Console.WriteLine("Soc el tercer fil"));
@@ -41,6 +42,18 @@ namespace M09T2Activitats
                 }
             });
             countdown.Start();
+            */
+            //Ex6
+            Thread camell1 = new Thread(() => Camel(1, 10, 40));
+            Thread camell2 = new Thread(() => Camel(2, 15, 30));
+            Thread camell3 = new Thread(() => Camel(3, 5, 60));
+            Thread camell4 = new Thread(() => Camel(4, 1, 100));
+            Thread camell5 = new Thread(() => Camel(5, 20, 25));
+            camell1.Start();
+            camell2.Start();
+            camell3.Start();
+            camell4.Start();
+            camell5.Start();
         }
 
         public static void PrintThreads()
@@ -58,6 +71,17 @@ namespace M09T2Activitats
                     Console.WriteLine($"Thread ID: {thread.Id}, Start Time: {thread.StartTime}, Priority: {thread.PriorityLevel}");
                 }
             }
+        }
+
+        public static void Camel(int num, int min, int max)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Random random = new Random();
+                Console.WriteLine("Soc el camell numero {0}: {1}", num, i);
+                Thread.Sleep(Convert.ToInt32(random.NextInt64(min, max)));
+            }
+            Console.WriteLine("Soc el camell numero {0}: He acabat", num);
         }
     }
 }
